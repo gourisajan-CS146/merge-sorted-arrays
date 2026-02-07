@@ -1,37 +1,41 @@
-public class SortedArraysMerge{
-  public static int[] merge(int[]leftArr,int[]rightArr){
-    int length = leftArr.length+rightArr.length;
-    int[]mergeArray = new int [length]; 
+public class SortedArraysMerge {
 
-    int i = 0;
-    int j = 0; 
-    int k = 0; 
+    public static int[] merge(int[] leftArr, int[] rightArr) {
 
- while(i < leftArr.&&j < rightArr.length){
-   if(leftArr[i]<=rightArr[j]){
-     mergeArray[k] = leftArr[i];
-      k++;
-      i++;
-  }
+        int length = leftArr.length + rightArr.length;
+        int[] mergeArray = new int[length];
 
-else { 
-  mergeArray[k] = rightArr[j];
-  k++;
-  j++;
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        // Compare elements from both arrays
+        while (i < leftArr.length && j < rightArr.length) {
+            if (leftArr[i] <= rightArr[j]) {
+                mergeArray[k] = leftArr[i];
+                i++;
+            } else {
+                mergeArray[k] = rightArr[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements from left array
+        while (i < leftArr.length) {
+            mergeArray[k] = leftArr[i];
+            i++;
+            k++;
+        }
+
+        // Copy remaining elements from right array
+        while (j < rightArr.length) {
+            mergeArray[k] = rightArr[j];
+            j++;
+            k++;
+        }
+
+        return mergeArray;
+    }
 }
-
- while(i< leftArr.lemgth){
-  mergeArray[k] = leftArr[i];
-  i++;
-  k++;
-
-} 
-while ( j < rightArray.length){
-  mergeArray[k] = rightArray[j]; 
-  k++;
-  j++;
-}
-return mergeArray; 
-
-
 
